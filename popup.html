@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 340px;
+      font-family: Arial, sans-serif;
+      padding: 15px;
+    }
+    h3 { margin-top: 0; }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], select, input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .row { display: flex; gap: 10px; }
+    .row > div { flex: 1; }
+    .preview-btn, .print-btn {
+      width: 100%;
+      padding: 10px;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    .preview-btn { background: #4285f4; }
+    .preview-btn:hover { background: #3367d6; }
+    .print-btn { background: #34a853; }
+    .print-btn:hover { background: #2e7d32; }
+    .reset-btn {
+      width: 100%;
+      padding: 10px;
+      background: #f4f4f4;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .reset-btn:hover { background: #e0e0e0; }
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .toggle-row input { margin-right: 8px; }
+    .toggle-row label { margin: 0; font-weight: normal; }
+    .color-row { display: flex; gap: 10px; margin-bottom: 15px; }
+    .color-row > div { flex: 1; }
+    input[type="color"] {
+      width: 100%;
+      height: 35px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .section-title {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      margin: 15px 0 10px;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <h3>Print Watermark</h3>
+  
+  <label for="watermarkText">Watermark Text:</label>
+  <input type="text" id="watermarkText" placeholder="e.g., CONFIDENTIAL">
+  
+  <div class="section-title">Font Settings</div>
+  
+  <div class="row">
+    <div>
+      <label for="fontFamily">Font:</label>
+      <select id="fontFamily">
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="Times New Roman, serif">Times New Roman</option>
+        <option value="Courier New, monospace">Courier</option>
+        <option value="Georgia, serif">Georgia</option>
+        <option value="Verdana, sans-serif">Verdana</option>
+        <option value="Impact, sans-serif">Impact</option>
+      </select>
+    </div>
+    <div>
+      <label for="fontSize">Size:</label>
+      <select id="fontSize">
+        <option value="24px">Small</option>
+        <option value="36px">Medium</option>
+        <option value="48px" selected>Large</option>
+        <option value="72px">X-Large</option>
+        <option value="96px">XXL</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="color-row">
+    <div>
+      <label for="fontColor">Color:</label>
+      <select id="fontColor">
+        <option value="#808080">Gray</option>
+        <option value="#FF0000">Red</option>
+        <option value="#0000FF">Blue</option>
+        <option value="#008000">Green</option>
+        <option value="#FFA500">Orange</option>
+        <option value="#800080">Purple</option>
+        <option value="#000000">Black</option>
+        <option value="#FFC0CB">Pink</option>
+        <option value="#FFFF00">Yellow</option>
+      </select>
+    </div>
+    <div>
+      <label for="opacity">Opacity:</label>
+      <select id="opacity">
+        <option value="0.1">10%</option>
+        <option value="0.2">20%</option>
+        <option value="0.3" selected>30%</option>
+        <option value="0.5">50%</option>
+        <option value="0.7">70%</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="section-title">Position</div>
+  
+  <div class="row">
+    <div>
+      <label for="posX">X Position (%):</label>
+      <input type="number" id="posX" value="50" min="0" max="100">
+    </div>
+    <div>
+      <label for="posY">Y Position (%):</label>
+      <input type="number" id="posY" value="50" min="0" max="100">
+    </div>
+  </div>
+  
+  <div class="row">
+    <div>
+      <label for="rotation">Rotation (deg):</label>
+      <input type="number" id="rotation" value="-45" min="-180" max="180">
+    </div>
+    <div>
+      <label for="spacing">Spacing:</label>
+      <select id="spacing">
+        <option value="0px">None</option>
+        <option value="50px">Small</option>
+        <option value="100px" selected>Medium</option>
+        <option value="200px">Large</option>
+      </select>
+    </div>
+  </div>
+  
+  <label for="layout">Layout:</label>
+  <select id="layout">
+    <option value="tiled" selected>Tiled (repeat across page)</option>
+    <option value="single">Single (one watermark)</option>
+  </select>
+  
+  <div class="toggle-row">
+    <input type="checkbox" id="showPreview">
+    <label for="showPreview">Show on screen</label>
+  </div>
+  
+  <button class="preview-btn" id="previewBtn">Apply Watermark</button>
+  <button class="print-btn" id="printBtn">Print with Watermark</button>
+  <button class="reset-btn" id="resetBtn">Reset to Default</button>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
