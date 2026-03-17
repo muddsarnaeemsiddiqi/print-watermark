@@ -2,6 +2,8 @@
 
 Add customizable diagonal watermarks to any webpage before printing.
 
+![Print Watermark Extension](screenshot.png)
+
 ## Features
 
 - Custom watermark text
