@@ -28,16 +28,9 @@ Add customizable diagonal watermarks to any webpage before printing.
 
 The Firefox version lives in `firefox/`.
 
-Temporary install (for testing):
-
 1. Open Firefox and go to `about:debugging#/runtime/this-firefox`
 2. Click **Load Temporary Add-on...**
 3. Select `firefox/manifest.json`
-
-Publish to AMO (Firefox Add-ons):
-
-1. Zip the contents of the `firefox/` folder (so the ZIP root contains `manifest.json`)
-2. Upload the ZIP to https://addons.mozilla.org/developers/
 
 ## Usage
 
