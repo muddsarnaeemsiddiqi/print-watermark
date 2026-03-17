@@ -22,19 +22,22 @@ Add customizable diagonal watermarks to any webpage before printing.
 2. Open Chrome → Menu → Extensions → Manage Extensions
 3. Enable **Developer mode** (top right)
 4. Click **Load unpacked**
-5. Select the folder containing the extension files
+5. Select the repository folder (the one that contains `manifest.json`)
 
 ### Firefox
 
-1. Download the extension files
-2. Open Firefox → Add-ons → Manage Extensions
-3. Click the gear icon → **Debug Add-ons**
-4. Click **Load Temporary Add-on**
-5. Select any file from the extension folder
+The Firefox version lives in `firefox/`.
 
-### Firefox Add-ons Store
+Temporary install (for testing):
 
-Search for "Print Watermark" on [Firefox Add-ons](https://addons.mozilla.org)
+1. Open Firefox and go to `about:debugging#/runtime/this-firefox`
+2. Click **Load Temporary Add-on...**
+3. Select `firefox/manifest.json`
+
+Publish to AMO (Firefox Add-ons):
+
+1. Zip the contents of the `firefox/` folder (so the ZIP root contains `manifest.json`)
+2. Upload the ZIP to https://addons.mozilla.org/developers/
 
 ## Usage
 
